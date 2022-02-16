@@ -583,6 +583,64 @@
       </li>
     </ul>
     <p class="c0 c2"><span class="c1"></span></p>
+		<p class="c0 c2"><span class="c1"></span></p>
+    <p class="c0">
+      <span
+        style="
+          overflow: hidden;
+          display: inline-block;
+          margin: 0px 0px;
+          border: 0px solid #000000;
+          transform: rotate(0rad) translateZ(0px);
+          -webkit-transform: rotate(0rad) translateZ(0px);
+          width: 624px;
+          height: 505.33px;
+        "
+        ><img
+          alt=""
+          src="img/image10.png"
+          style="
+            width: 624px;
+            height: 505.33px;
+            margin-left: 0px;
+            margin-top: 0px;
+            transform: rotate(0rad) translateZ(0px);
+            -webkit-transform: rotate(0rad) translateZ(0px);
+          "
+          title=""
+      /></span>
+    </p>
+    <p class="c0">
+      <span class="c1"
+        >There is a significant difference between the 1 sample per pixel,
+        nearest-neighbor pixel sampling (top left) and the other 3 examples with
+        other parameters chosen: the longitude line on the world map has
+        aliasing effects with breaks in the line when zooming in.</span
+      >
+    </p>
+    <p class="c0 c2"><span class="c1"></span></p>
+    <p class="c0">
+      <span class="c1"
+        >The differences between the other 3 are a bit more subtle: bilinear
+        pixel sampling with 1 sample per pixel makes the line continuous with
+        some jaggies and bilinear sampling with 16 samples per pixel makes a
+        very smooth diagonal line, but with a blurring effect.</span
+      >
+    </p>
+    <p class="c0 c2"><span class="c1"></span></p>
+    <p class="c0">
+      <span class="c1"
+        >There will be a more significant difference between nearest-neighbor
+        and bilinear sampling in places where the signal of the texture is
+        fast-changing (in this case, the thin longitude line in the texture is
+        very sharply changing between the green land and the white line marker).
+        Nearest-neighbor sampling may identify points in the texture that are
+        closer to either side of the high-frequency longitude line and result in
+        aliasing effects, whereas bilinear filtering can interpolate across more
+        points in the texture and reduce aliasing.</span
+      >
+    </p>
+		<p class="c0 c2"><span class="c1"></span></p>
     <h2 class="c5" id="h.cj9l73kwbutl"><span class="c3">Task 6</span></h2>
     <p class="c0">
       <span class="c1"
