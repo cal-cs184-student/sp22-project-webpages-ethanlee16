@@ -1,7 +1,656 @@
 <html>
-	<head>
-	</head>
-	<body>
-		Project 1 here
-	</body>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+    <style type="text/css">
+      @import url("https://rsms.me/inter/inter.css");
+      html {
+        font-family: "Inter", sans-serif;
+      }
+      @supports (font-variation-settings: normal) {
+        html {
+          font-family: "Inter var", sans-serif;
+        }
+      }
+
+      ol {
+        margin: 0;
+        padding: 0;
+      }
+      table td,
+      table th {
+        padding: 0;
+      }
+      .c3 {
+        color: #000000;
+        font-weight: 700;
+        text-decoration: none;
+        vertical-align: baseline;
+        font-size: 16pt;
+        font-family: "Inter";
+        font-style: normal;
+      }
+      .c5 {
+        padding-top: 18pt;
+        padding-bottom: 3pt;
+        line-height: 1.5;
+        page-break-after: avoid;
+        orphans: 2;
+        widows: 2;
+        text-align: left;
+      }
+      .c1 {
+        color: #000000;
+        font-weight: 400;
+        text-decoration: none;
+        vertical-align: baseline;
+        font-size: 11pt;
+        font-family: "Inter";
+        font-style: normal;
+      }
+      .c0 {
+        padding-top: 0pt;
+        padding-bottom: 0pt;
+        line-height: 1.5;
+        orphans: 2;
+        widows: 2;
+        text-align: left;
+      }
+      body.c8 {
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .c8 {
+        background-color: #fefefe;
+        max-width: 468pt;
+        padding: 72pt 72pt 72pt 72pt;
+      }
+      .c4 {
+        margin-left: 36pt;
+        padding-left: 0pt;
+      }
+      .c6 {
+        font-weight: 400;
+        font-family: monospace;
+      }
+      .c7 {
+        padding: 0;
+        margin: 0;
+      }
+      .c2 {
+        height: 11pt;
+      }
+      .title {
+        padding-top: 0pt;
+        color: #000000;
+        font-size: 26pt;
+        padding-bottom: 3pt;
+        font-family: "Inter";
+        line-height: 1.15;
+        page-break-after: avoid;
+        orphans: 2;
+        widows: 2;
+        text-align: left;
+      }
+      .subtitle {
+        padding-top: 0pt;
+        color: #666666;
+        font-size: 15pt;
+        padding-bottom: 16pt;
+        font-family: "Inter";
+        line-height: 1.15;
+        page-break-after: avoid;
+        orphans: 2;
+        widows: 2;
+        text-align: left;
+      }
+      li {
+        color: #000000;
+        font-size: 11pt;
+        font-family: "Inter";
+      }
+      p {
+        margin: 0;
+        color: #000000;
+        font-size: 11pt;
+        font-family: "Inter";
+      }
+      h1 {
+        padding-top: 20pt;
+        color: #000000;
+        font-size: 20pt;
+        padding-bottom: 6pt;
+        font-family: "Inter";
+        line-height: 1.15;
+        page-break-after: avoid;
+        orphans: 2;
+        widows: 2;
+        text-align: left;
+      }
+      h2 {
+        padding-top: 18pt;
+        color: #000000;
+        font-size: 16pt;
+        padding-bottom: 6pt;
+        font-family: "Inter";
+        line-height: 1.15;
+        page-break-after: avoid;
+        orphans: 2;
+        widows: 2;
+        text-align: left;
+      }
+      h3 {
+        padding-top: 16pt;
+        color: #434343;
+        font-size: 14pt;
+        padding-bottom: 4pt;
+        font-family: "Inter";
+        line-height: 1.15;
+        page-break-after: avoid;
+        orphans: 2;
+        widows: 2;
+        text-align: left;
+      }
+      h4 {
+        padding-top: 14pt;
+        color: #666666;
+        font-size: 12pt;
+        padding-bottom: 4pt;
+        font-family: "Inter";
+        line-height: 1.15;
+        page-break-after: avoid;
+        orphans: 2;
+        widows: 2;
+        text-align: left;
+      }
+      h5 {
+        padding-top: 12pt;
+        color: #666666;
+        font-size: 11pt;
+        padding-bottom: 4pt;
+        font-family: "Inter";
+        line-height: 1.15;
+        page-break-after: avoid;
+        orphans: 2;
+        widows: 2;
+        text-align: left;
+      }
+      h6 {
+        padding-top: 12pt;
+        color: #666666;
+        font-size: 11pt;
+        padding-bottom: 4pt;
+        font-family: "Inter";
+        line-height: 1.15;
+        page-break-after: avoid;
+        font-style: italic;
+        orphans: 2;
+        widows: 2;
+        text-align: left;
+      }
+    </style>
+  </head>
+  <body class="c8">
+    <h1>Project 1: Rasterizer</h1>
+    <p>by Annie Wang and Ethan Lee</p>
+    <p class="c0 c2"><span class="c1"></span></p>
+    <h2 class="c5" id="h.f1jps259vsc3"><span class="c3">Introduction</span></h2>
+    <p class="c0">
+      <span class="c1"
+        >In this project, we experimented with different techniques for
+        rasterization, interpolation, and texture mapping. While implementing
+        these techniques we learned about the tradeoffs of sizing our sample
+        buffers in various ways and encountered challenges with memory
+        management.</span
+      >
+    </p>
+    <h2 class="c5" id="h.mcim1j3dgh0j"><span class="c3">Task 1</span></h2>
+    <p class="c0">
+      <span class="c1"
+        >We rasterized triangles by looping through each point between the
+        minimum and maximum x and y coordinates of the triangle and checking
+        each point to see if it is in the triangle. We specifically checked each
+        point at an offset of 0.5 to see if the centers of the pixels fell
+        inside or outside the edges of the triangle.
+      </span>
+    </p>
+    <p class="c0 c2"><span class="c1"></span></p>
+    <p class="c0">
+      <span class="c1"
+        >To check if a point was inside the triangle, our algorithm looped
+        through each pair of triangle edges to check if the point in question is
+        on the same side of the two lines as the third triangle vertex that was
+        not covered by the two lines. If this was true for all three pairs of
+        edges, the point was indeed inside the triangle, so we rasterize the
+        point.</span
+      >
+    </p>
+    <p class="c0 c2"><span class="c1"></span></p>
+    <p class="c0">
+      <span class="c1"
+        >To minimize unnecessary computation, our algorithm only checked within
+        a bounding box of the triangle created by the distances between minimum
+        and maximum x and y coordinates from the triangle.</span
+      >
+    </p>
+    <p class="c0">
+      <span
+        style="
+          overflow: hidden;
+          display: inline-block;
+          margin: 0px 0px;
+          border: 0px solid #000000;
+          transform: rotate(0rad) translateZ(0px);
+          -webkit-transform: rotate(0rad) translateZ(0px);
+          width: 550.77px;
+          height: 447.5px;
+        "
+        ><img
+          alt=""
+          src="/proj1/img/image6.png"
+          style="
+            width: 550.77px;
+            height: 447.5px;
+            margin-left: 0px;
+            margin-top: 0px;
+            transform: rotate(0rad) translateZ(0px);
+            -webkit-transform: rotate(0rad) translateZ(0px);
+          "
+          title=""
+      /></span>
+    </p>
+    <h2 class="c5" id="h.g7jhgfw4wawd"><span class="c3">Task 2</span></h2>
+    <p class="c0">
+      <span class="c1"
+        >Supersampling our triangles requires us to first increase the size of
+        our sample buffer by a factor of our sample rate. This is because our
+        supersampling strategy will rasterize a higher resolution of the image
+        (by a multiple of sample_rate) and then downsample it into the
+        resolution of the framebuffer.</span
+      >
+    </p>
+    <p class="c0 c2"><span class="c1"></span></p>
+    <p class="c0">
+      <span class="c1"
+        >Our supersampling algorithm begins by calculating the &ldquo;subpixel
+        width&rdquo; of a pixel location, which refers to the &ldquo;actual
+        width&rdquo; of a sample that is taken sample_rate times for each pixel.
+        For example, for a sample_rate of 4, each subpixel width is 0.5 (4
+        subpixels for each pixel).</span
+      >
+    </p>
+    <p class="c0 c2"><span class="c1"></span></p>
+    <p class="c0">
+      <span
+        >We then modify our original rasterization algorithm to break down each
+        pixel sample into a square with a side length of the square root of the
+        sample rate (making the area equal to the sample rate). Because we
+        modified the size of our sample buffer to account for </span
+      ><span class="c6">sample_rate</span
+      ><span class="c1"
+        >&nbsp;times more pixels than the original image, we can use a modified
+        fill_pixel function to check if each subpixel location falls within the
+        triangle and then write that subpixel color to the buffer.</span
+      >
+    </p>
+    <p class="c0 c2"><span class="c1"></span></p>
+    <p class="c0">
+      <span class="c1"
+        >Finally, we modify the part of our rasterization pipeline that resolves
+        the sample buffer to the framebuffer by iterating through each pixel and
+        averaging all the subpixel colors in the sample buffer for that pixel.
+        We write this averaged color of the subpixels into the
+        framebuffer.</span
+      >
+    </p>
+    <p class="c0 c2"><span class="c1"></span></p>
+    <p class="c0 c2"><span class="c1"></span></p>
+    <b>Supersampling rate of 1 per pixel:</b>
+    <p class="c0">
+      <span
+        style="
+          overflow: hidden;
+          display: inline-block;
+          margin: 0px 0px;
+          border: 0px solid #000000;
+          transform: rotate(0rad) translateZ(0px);
+          -webkit-transform: rotate(0rad) translateZ(0px);
+          width: 323.29px;
+          height: 242.47px;
+        "
+        ><img
+          alt=""
+          src="/proj1/img/image8.png"
+          style="
+            width: 323.29px;
+            height: 242.47px;
+            margin-left: 0px;
+            margin-top: 0px;
+            transform: rotate(0rad) translateZ(0px);
+            -webkit-transform: rotate(0rad) translateZ(0px);
+          "
+          title=""
+      /></span>
+    </p>
+    <p style="margin-top: 20px"><b>Supersampling rate of 4 per pixel:</b></p>
+    <p class="c0">
+      <span
+        style="
+          overflow: hidden;
+          display: inline-block;
+          margin: 0px 0px;
+          border: 0px solid #000000;
+          transform: rotate(0rad) translateZ(0px);
+          -webkit-transform: rotate(0rad) translateZ(0px);
+          width: 374.97px;
+          height: 304.5px;
+        "
+        ><img
+          alt=""
+          src="/proj1/img/image4.png"
+          style="
+            width: 374.97px;
+            height: 304.5px;
+            margin-left: 0px;
+            margin-top: 0px;
+            transform: rotate(0rad) translateZ(0px);
+            -webkit-transform: rotate(0rad) translateZ(0px);
+          "
+          title="" /></span
+      >
+			<p style="margin-top: 20px"><b>Supersampling rate of 16 per pixel:</b></p>
+			<span
+        style="
+          overflow: hidden;
+          display: inline-block;
+          margin: 0px 0px;
+          border: 0px solid #000000;
+          transform: rotate(0rad) translateZ(0px);
+          -webkit-transform: rotate(0rad) translateZ(0px);
+          width: 350.91px;
+          height: 284.86px;
+        "
+        ><img
+          alt=""
+          src="/proj1/img/image9.png"
+          style="
+            width: 350.91px;
+            height: 284.86px;
+            margin-left: 0px;
+            margin-top: 0px;
+            transform: rotate(0rad) translateZ(0px);
+            -webkit-transform: rotate(0rad) translateZ(0px);
+          "
+          title=""
+      /></span>
+    </p>
+    <p class="c0">
+      <span class="c1"
+        >As seen from the pixel inspector results as we increase the supersample
+        rate, the tip of this triangle stops exhibiting jaggies and aliasing
+        effects once we increase the level of supersampling for the image.
+      </span>
+    </p>
+    <h2 class="c5" id="h.8fgazxhrevll"><span class="c3">Task 3</span></h2>
+    <p class="c0">
+      <span
+        style="
+          overflow: hidden;
+          display: inline-block;
+          margin: 0px 0px;
+          border: 0px solid #000000;
+          transform: rotate(0rad) translateZ(0px);
+          -webkit-transform: rotate(0rad) translateZ(0px);
+          width: 624px;
+          height: 506.67px;
+        "
+        ><img
+          alt=""
+          src="/proj1/img/image2.png"
+          style="
+            width: 624px;
+            height: 506.67px;
+            margin-left: 0px;
+            margin-top: 0px;
+            transform: rotate(0rad) translateZ(0px);
+            -webkit-transform: rotate(0rad) translateZ(0px);
+          "
+          title=""
+      /></span>
+    </p>
+    <p class="c0">
+      <span class="c1"
+        >We applied rotation and translation transformations to make the cubeman
+        look like it&rsquo;s waving from a surfboard. For each limb we rotated,
+        we had to also adjust the translation to make sure the limbs still
+        appeared attached to the body.</span
+      >
+    </p>
+    <h2 class="c5" id="h.ksfmt8p0dcns"><span class="c3">Task 4</span></h2>
+    <p class="c0">
+      <span class="c1"
+        >Barycentric coordinates are a way to represent a point by its position
+        relative to the three vertices of a triangle. The three components of a
+        barycentric coordinate must sum to 1, so the coordinates represent a
+        weighted sum of all the distances from the point to each vertex of the
+        triangle. We can apply this idea of a weighted sum to calculate linear
+        interpolation across the values at each vertex.
+      </span>
+    </p>
+		<p class="c0 c2"><span class="c1"></span></p>
+    <p class="c0">
+      <span class="c1"
+        >For example, in the triangle image below, the vertices have color
+        values of red, green, and blue. Since barycentric coordinates represent
+        a continuous spectrum of weights of the three vertices, the colors of
+        the inside of the triangle are smoothly blended, as each barycentric
+        coordinate inside the triangle represents a ratio of red, green, and
+        blue by the distance from the coordinate to each vertex.</span
+      >
+    </p>
+    <p class="c0">
+      <span
+        style="
+          overflow: hidden;
+          display: inline-block;
+          margin: 0px 0px;
+          border: 0px solid #000000;
+          transform: rotate(0rad) translateZ(0px);
+          -webkit-transform: rotate(0rad) translateZ(0px);
+          width: 519.5px;
+          height: 422.09px;
+        "
+        ><img
+          alt=""
+          src="/proj1/img/image7.png"
+          style="
+            width: 519.5px;
+            height: 422.09px;
+            margin-left: 0px;
+            margin-top: 0px;
+            transform: rotate(0rad) translateZ(0px);
+            -webkit-transform: rotate(0rad) translateZ(0px);
+          "
+          title=""
+      /></span>
+    </p>
+    <p class="c0">
+      <span
+        style="
+          overflow: hidden;
+          display: inline-block;
+          margin: 0px 0px;
+          border: 0px solid #000000;
+          transform: rotate(0rad) translateZ(0px);
+          -webkit-transform: rotate(0rad) translateZ(0px);
+          width: 496.5px;
+          height: 403.41px;
+        "
+        ><img
+          alt=""
+          src="/proj1/img/image1.png"
+          style="
+            width: 496.5px;
+            height: 403.41px;
+            margin-left: 0px;
+            margin-top: 0px;
+            transform: rotate(0rad) translateZ(0px);
+            -webkit-transform: rotate(0rad) translateZ(0px);
+          "
+          title=""
+      /></span>
+    </p>
+    <p class="c0">
+      <span
+        style="
+          overflow: hidden;
+          display: inline-block;
+          margin: 0px 0px;
+          border: 0px solid #000000;
+          transform: rotate(0rad) translateZ(0px);
+          -webkit-transform: rotate(0rad) translateZ(0px);
+          width: 624px;
+          height: 525.33px;
+        "
+        ><img
+          alt=""
+          src="/proj1/img/image3.png"
+          style="
+            width: 624px;
+            height: 525.33px;
+            margin-left: 0px;
+            margin-top: 0px;
+            transform: rotate(0rad) translateZ(0px);
+            -webkit-transform: rotate(0rad) translateZ(0px);
+          "
+          title="" /></span
+      ><span
+        style="
+          overflow: hidden;
+          display: inline-block;
+          margin: 0px 0px;
+          border: 0px solid #000000;
+          transform: rotate(0rad) translateZ(0px);
+          -webkit-transform: rotate(0rad) translateZ(0px);
+          width: 624px;
+          height: 506.67px;
+        "
+        ><img
+          alt=""
+          src="/proj1/img/image5.png"
+          style="
+            width: 624px;
+            height: 506.67px;
+            margin-left: 0px;
+            margin-top: 0px;
+            transform: rotate(0rad) translateZ(0px);
+            -webkit-transform: rotate(0rad) translateZ(0px);
+          "
+          title=""
+      /></span>
+    </p>
+    <h2 class="c5" id="h.f6bfanzeom57"><span class="c3">Task 5</span></h2>
+    <p class="c0">
+      <span class="c1"
+        >In pixel sampling, we take a sample from the texture image for finding
+        what color a point in a textured triangle should correspond to. We use
+        this for texture mapping by using the triangle vertices&rsquo; known
+        points in texture coordinates ((ui, vi) for i = 0, 1, 2) and then
+        calculating these texture coordinates for every point in the triangle to
+        sample the color from the image.</span
+      >
+    </p>
+    <p class="c0 c2"><span class="c1"></span></p>
+    <p class="c0">
+      <span class="c1"
+        >There are two different strategies we implemented for texture
+        sampling.</span
+      >
+    </p>
+    <ul class="c7 lst-kix_n0a0s5tgxd55-0 start">
+      <li class="c0 c4 li-bullet-0">
+        <span class="c1"
+          >Nearest-neighbor sampling finds the closest corresponding point in
+          texture coordinates (texel) and uses the color directly for the point
+          (pixel).</span
+        >
+      </li>
+      <li class="c0 c4 li-bullet-0">
+        <span class="c1"
+          >Bilinear sampling finds the 4 nearest texture sample locations and
+          linearly interpolates between the colors of these samples with respect
+          to the calculated texture coordinate.</span
+        >
+      </li>
+    </ul>
+    <p class="c0 c2"><span class="c1"></span></p>
+    <h2 class="c5" id="h.cj9l73kwbutl"><span class="c3">Task 6</span></h2>
+    <p class="c0">
+      <span class="c1"
+        >In level sampling, we utilize a mipmap of the texture image (which
+        stores lower resolutions of the original image at higher
+        &ldquo;levels&rdquo; of the mipmap). Our goal with level sampling is to
+        choose a higher mipmap level of the texture (a lower resolution texture)
+        if the estimated area that a texture coordinate covers is lower. Level
+        sampling uses different strategies to calculate which level of the
+        mipmap we should load for a particular point in the triangle. We
+        implemented three different ones:</span
+      >
+    </p>
+    <ul class="c7 lst-kix_hjrf47c88rzo-0 start">
+      <li class="c0 c4 li-bullet-0">
+        <span class="c1"
+          >Zero-level sampling only uses the 0th level of the texture (the
+          original image). This is equivalent to the sampling method used in
+          Task 5.</span
+        >
+      </li>
+      <li class="c0 c4 li-bullet-0">
+        <span class="c1"
+          >Nearest-neighbor sampling uses the closest mipmap level (discrete) to
+          the level calculated (a floating-point number).</span
+        >
+      </li>
+      <li class="c0 c4 li-bullet-0">
+        <span class="c1"
+          >Linear sampling uses the level calculated and creates a weighted sum
+          of samples between the closest 2 mipmap levels.</span
+        >
+      </li>
+    </ul>
+    <p class="c0 c2"><span class="c1"></span></p>
+    <p class="c0">
+      <span class="c1"
+        >By varying pixel sampling, level sampling, and supersampling rates, we
+        create different tradeoffs between speed, memory usage, and aliasing
+        effects.</span
+      >
+    </p>
+    <p class="c0 c2"><span class="c1"></span></p>
+    <p class="c0">
+      <span class="c1"
+        >As we&rsquo;ve explored with implementing supersampling, increasing the
+        sample rate per pixel can reduce aliasing effects at a multiplier cost
+        of speed and memory.</span
+      >
+    </p>
+    <p class="c0 c2"><span class="c1"></span></p>
+    <p class="c0">
+      <span class="c1"
+        >Linear interpolation methods for both pixel sampling and level sampling
+        can also produce better antialiasing results but at the cost of speed in
+        calculating the linear interpolation between various texture
+        points.</span
+      >
+    </p>
+    <p class="c0 c2"><span class="c1"></span></p>
+    <p class="c0">
+      <span class="c1"
+        >Zero-level texture sampling can reduce our mipmap size by a small
+        amount (by discarding redundant higher levels) and removes the need for
+        calculating mipmap levels (it will always be 0), but at the cost of
+        aliasing effects from sizing differences between the sample and the
+        texture.</span
+      >
+    </p>
+  </body>
 </html>
